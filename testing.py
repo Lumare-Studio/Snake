@@ -1,10 +1,17 @@
-class test:
+testing_file = open("Testing", "r")
+print(testing_file.read())
+print(3.5 >= 0)
 
-    def __init__(self, a=1):
-        self.a = a
 
-test()
+def on_honor_roll(gpa):
+    if gpa >= 3.5:
+        return True
+    elif 2.0 <= gpa < 3.5:
+        return "Keep fighting!"  # This is super duper Giao
+    else:
+        return False
 
-a = "aasd"
-a = reversed(a)
-print(a)
+
+print(on_honor_roll(3.8))
+print(on_honor_roll(3.1))
+print(on_honor_roll(1.8))

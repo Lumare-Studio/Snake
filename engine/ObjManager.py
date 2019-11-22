@@ -4,6 +4,6 @@ class ObjManager(object):
         self.obj_list = [None]
         self.obj_grid = [[None]*width]*height
 
-    def add_obj(self, obj):
+    def add_obj(self, obj=None):
         if obj != None:
-            self.objList.append(Obj)
+            self.objList.append(obj)

@@ -1,0 +1,245 @@
+# All popular python expressions, methods, tips, etc
+# Colon is ver important!
+
+# Str
+str(1)
+string = "abcd"
+string.upper()
+string.lower()
+string.isupper()
+string.islower()
+len(string)
+letter1 = string[0]
+string.index("a")
+string.replace("a", "c")
+
+
+# Number
+from math import *
+pow(4, 2)
+max(4, 2)
+min(3, 7)
+round(3.5)  # round up if >= 3.5 round down if < 3.5
+floor(3.5)  # round down no matter what
+ceil(3.5)  # round up no matter what
+sqrt(36)  # square root of the number
+range(10)  # A list of numbers from 0 to 9 (Exclusive, which means automatically subtracts one from length)
+range(3, 10)  # A list of numbers from 3 to 9 (Right inclusive, Left exclusive)
+print(2 ** 3)  # 2 to the third power
+
+
+# List functions
+friends = ["yee", "Yee", "YYY", "222"]
+lucky_numbers = [1, 2, 100, 50, 30]
+item1 = friends[0]  # Return the specified item
+friends.extend(lucky_numbers)  # Add a whole list to a list, inside the list can be anything
+friends.append("121")  # Always add the specified function at the end of the list
+friends.insert(0, "222")  # Add the specified item into the specified index
+friends.remove("222")  # Remove the first occurrence of the specified item
+friends.pop()  # pop the last item in the list
+friends.clear()  # Reset the whole list
+friends.index("222")  # Return the index of the first occurrence in the list
+friends.count("222")  # Return the count of the specified item
+friends.sort()  # Sort the list (Alphabetical order)
+friends.reverse()  # Reverse the list
+friends.copy()  # Return the list as a copy
+len(friends)  # Return the length of the specified list
+otherFriends = friends[1:]  # Pretty handy expression to extract a desired substring
+friends = ["yee", "Yee", "YYY", "222"]
+
+
+# Tuple (Immutable object)
+coordinates = (4, 5)
+item1 = coordinates[0]  # Return the specified item
+
+
+# Function needs to leave two blank lines
+
+
+def say_hi(name=None, age=None):
+    print(name + str(age))
+
+
+say_hi("Yee", 21)
+
+
+# If else and compare operation
+if 1 and 2:
+    print(1, 2)
+elif 3 and not 4:
+    print(3, 5)
+elif not 3 < 5 or 5:
+    print(4, 6)
+else:
+    print("others")
+
+
+# Comparisons are the same as Java
+# >= > <= < == (== can be used on strings as well)
+
+
+# Dictionary
+month_conversion = {
+    "Jan": 1,
+    "February": 2,
+    1: 3,
+}
+
+spr
+month_conversion[1]  # Get the value that maps to the specified element (NOT INDEX!)
+month_conversion["Jan"]
+month_conversion.get("Dec")  # Also get the value
+month_conversion.get("Yashi", "Not a valid key")  # Can also pass in a default value if not found
+month_conversion.items()
+month_conversion.keys()
+sorted(month_conversion.items())
+month_conversion[key] = value  # For adding a new value
+for key, value in month_conversion:
+    Do something
+
+
+# While loop
+i = 1
+while i <= 10:
+    print(i)
+    i += 1
+
+print("Done with printing")
+
+
+# For loop
+# After in key word: String, List, Tuple
+
+
+# This could be very useful technique to look up the index
+for index in range(10):
+    print(friends[index])
+
+# This might be even more help to loop up a List or String when we also want to have access to index
+for index in range(len(friends)):
+    print(index)
+    print(friends[index])
+
+for letter in "Giraffe Academy":
+    print(letter)
+
+
+# 2D Lists almost the same as the Java's double array
+number_grid = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+]
+print(number_grid[0][1])  # The first index indicates row and the second index indicates column
+
+
+# Translator example for a slight complex python function
+# Takeaway: can use if ... in ... as check if contain
+
+
+def translate(phrase):
+    translation = ""
+    for element in phrase:
+        if element in "AEOIUaeiou":
+            translation += "g"
+        else:
+            translation += letter
+    return translation
+
+
+# Try except block like Java's Try catch block
+try:
+    answer = 100 / 0
+    do_something = [1, 2, 5, 7, 4, 5]
+    print(do_something.sort())
+except ZeroDivisionError as err:  # Specified the type of we want to catch
+    print("Can't divide by zero")
+    print(err)
+except ValueError as err:
+    print("Invalid input")
+    print(err)
+
+
+# Read files from outside sources
+# a => only append new information to the end of the file r => read w => write r+ => read and write
+# Absolute path or relative
+testing_file = open("Testing.txt", "r")
+# Read file
+testing_file.readable()  # Check if the file is readable
+testing_file.read()  # Return the whole file
+testing_file.readline()  # Return the whole line, the cursor will change! (Like iterator)
+testing_file.readlines()  # Return a list containing element based on each line
+
+# Write file
+testing_file = open("Testing.txt", "a")
+testing_file.write("\nI write something into the file!")  # Always add a new line
+testing_file = open("Testing.txt", "w")
+testing_file.write("\nI write something into the file!")  # Overwrite the whole file !! (w)
+testing_file = open("NewFile.java", "w")
+testing_file.write("public void main(String args[]) {...}")  # If the file does not exist, create a new file!
+testing_file.close()
+
+# Import modules
+import SnakeGame  # import our written python files
+# Below is the step to download package with pip
+# Should download pip first (It is in Pycharm terminal)
+from math import *  # import the all modules in math package (File)
+from math import
+print(SnakeGame.game)
+
+# Class and Object
+# Define class
+class Student:
+
+    def __init__(self, name=None, age=None, major="Pre science", gpa=4.0):
+        self.name = name
+        self.age = age
+        self.major = major
+        self.gpa = gpa
+
+
+# In another file
+from Student import Student # This means to import Student class from a file called Student
+
+# After creating a instance of the class, we can have access to the object's field
+student1 = Student("SuperDuperStupid", 1, "Exiled from school", -4.0)
+student1.name
+student1.age
+student1.major
+student.gpa
+
+# Modify class
+class Student:
+
+    def __init__(self, name=None, age=None, major="Pre science", gpa=4.0):
+        self.name = name
+        self.age = age
+        self.major = major
+        self.gpa = gpa
+
+    def on_honor_roll(self):
+        if self.gpa >= 3.5:
+            return True
+        elif 2.0 <= self.gpa < 3.5:
+            return "Keep fighting"  # Can actually return another data type!!
+        else:
+            return False
+
+
+# Inheritance
+
+from Chef import Chef
+
+class SuperStudent(Chef):
+
+    def is_super_student(self):
+        return age > 10000
+
+
+
+
+
+
+
+
+
