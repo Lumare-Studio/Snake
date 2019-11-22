@@ -1,8 +1,10 @@
 class test:
 
-    def __init__(self, a = 1):
+    def __init__(self, a=1):
         self.a = a
 
+test()
 
-a = test("dasdawdwada")
+a = "aasd"
+a = reversed(a)
 print(a)

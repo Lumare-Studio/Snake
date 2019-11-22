@@ -1,9 +1,9 @@
 class ObjManager(object):
 
-    def __init__(self, width = 0, height = 0):
-        self.ObjList = [None]
-        self.ObjGrid = [[None]*width]*height
+    def __init__(self, width=0, height=0):
+        self.obj_list = [None]
+        self.obj_grid = [[None]*width]*height
 
-    def addObj(self, Obj = None):
-        if Obj != None:
+    def add_obj(self, obj):
+        if obj != None:
             self.objList.append(Obj)
