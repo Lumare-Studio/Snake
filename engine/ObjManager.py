@@ -6,4 +6,4 @@ class ObjManager(object):
 
     def add_obj(self, obj):
         if obj != None:
-            self.objList.append(Obj)
+            self.objList.append(obj)

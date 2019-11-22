@@ -13,12 +13,13 @@ class WindowManager(object):
         self.window.title(self.window_name)
         self.window.geometry(str(self.window_height) + "x" + str(self.window_width))
         # Add canvas
-        self.mainCanvas = Canvas(self.window, width=self.window_width, height=self.window_height)
-        # Show window
-        self.window.mainloop()
+        self.mainCanvas = Canvas(self.window, width=self.window_width, height=self.window_height, bg="black")
 
     def get_window(self):
         return self.window
 
     def get_canvas(self):
         return self.mainCanvas
+
+    def show_window(self):
+        self.window.mainloop()
