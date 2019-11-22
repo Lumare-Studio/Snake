@@ -10,6 +10,7 @@ class WindowManager(object):
         self.window_width = window_width
         self.window_height = window_height
         self.window = Tk()
+
         self.window.title(window_name)
         self.window.geometry(str(window_width) + "x" + str(window_height))
         # Add Canvas
@@ -22,3 +23,6 @@ class WindowManager(object):
 
     def get_canvas(self):
         return self.mainCanvas
+
+    def show_window(self):
+        self.window.mainloop()
