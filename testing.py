@@ -1,27 +1,29 @@
+import time
+
 from engine.WindowManager import *
 
-testing_file = open("Testing", "r")
-print(testing_file.read())
-print(3.5 >= 0)
-
-
-def on_honor_roll(gpa):
-    if gpa >= 3.5:
-        return True
-    elif 2.0 <= gpa < 3.5:
-        return "Keep fighting!"  # This is super duper Giao
-    else:
-        return False
-
-
-print(on_honor_roll(3.8))
-print(on_honor_roll(3.1))
-print(on_honor_roll(1.8))
-
-
-a = WindowManager("Testing", 500, 500)
+a = WindowManager("Testing", 800, 800)
+w = a.get_window()
 c = a.get_canvas()
-r = c.create_rectangle(0, 0, 30, 30, fill="red")
-c.pack()
-a.show_window()
+x = 0
+y = 0
+hi = 50
+wi = 50
+square = c.create_rectangle(x, y, x + hi, y + wi, fill="red")
+i = 0
+while True:
+    print("move", i)
+    c.delete("all")
+    x += 10
+    square = c.create_rectangle(x, y, x + hi, y + wi, fill="red")
+    print(x, " ", y)
+    if x > 800:
+        x = 0
+        y += 10
+    if y > 800:
+        y = 0
+    w.update()
+    time.sleep(0.1)
+    i += 1
 
+a.show_window()
