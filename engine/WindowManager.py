@@ -25,3 +25,4 @@ class WindowManager(object):
 
     def show_window(self):
         self.window.mainloop()
+

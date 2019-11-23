@@ -10,6 +10,8 @@ class GameObj(object):
         self.vel = velocity
         self.acc = acceleration
         self.tag = tag
+        self.width = width
+        self.height = height
 
 
 

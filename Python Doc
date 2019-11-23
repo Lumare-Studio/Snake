@@ -50,7 +50,6 @@ friends = ["yee", "Yee", "YYY", "222"]
 
 # Tuple (Immutable object)
 ()
-[]
 coordinates = (4, 5)
 item1 = coordinates[0]  # Return the specified item
 
