@@ -5,3 +5,4 @@ from .WindowManager import *
 from .Renderer import *
 from .PhysicsManager import *
 from .ObjManager import *
+from .SnakeBody import *

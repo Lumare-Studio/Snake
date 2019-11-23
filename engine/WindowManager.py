@@ -16,7 +16,6 @@ class WindowManager(object):
         # Add Canvas
         self.mainCanvas = Canvas(self.window, width=self.window_width, height=self.window_height)
         # Show window
-        self.window.mainloop()
 
     def get_window(self):
         return self.window
