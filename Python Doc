@@ -49,6 +49,8 @@ friends = ["yee", "Yee", "YYY", "222"]
 
 
 # Tuple (Immutable object)
+()
+[]
 coordinates = (4, 5)
 item1 = coordinates[0]  # Return the specified item
 
@@ -83,6 +85,11 @@ month_conversion = {
     "Jan": 1,
     "February": 2,
     1: 3,
+}
+
+obj = {
+    (1, 2): snake,
+    (25, 100): food
 }
 
 spr
