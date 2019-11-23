@@ -15,7 +15,10 @@ class WindowManager(object):
         self.window.geometry(str(window_width) + "x" + str(window_height))
         # Add Canvas
         self.mainCanvas = Canvas(self.window, width=self.window_width, height=self.window_height)
-        # Show window
+        self.mainCanvas.pack()
+        # Not resizeable
+        self.window.resizable(False, False)
+
 
     def get_window(self):
         return self.window

@@ -1,7 +1,6 @@
 from engine import *
 from random import *
 
-
 # Constant fields
 WIDTH = 800
 HEIGHT = 800
@@ -10,7 +9,6 @@ OBJECT_WIDTH = 25
 
 
 # snake movement
-snake = Snake()
 
 
 def move_snake(code):
@@ -94,6 +92,7 @@ reset()
 obj_list = {}
 
 
+
 # Main game
 def main():
     game_over = False
@@ -104,6 +103,7 @@ def main():
             game_over = False
 
         # Check for user input
+
         movement()
 
         # Check if there is food, if not, then create one
@@ -112,6 +112,4 @@ def main():
             has_food = True
 
         # Collision
-
-
 

@@ -13,5 +13,3 @@ class GameObj(object):
         self.width = width
         self.height = height
 
-
-
