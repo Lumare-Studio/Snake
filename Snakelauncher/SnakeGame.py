@@ -57,24 +57,30 @@ class SnakeGame(object):
 
     def movement(self):
         # add new body to the head
-        head_location = self.snake.head.location
+        head_location = self.snake.head.game_obj.location
 
         # compute location
-        location = (head_location[0] + self.snake.velocity[0], head_location[1] + self.snake.velocity[1])
-        temp_obj = self.obj_list[location]
-        if isinstance(temp_obj, GameObj):
-            if temp_obj.tag == "snake":
-                self.reset()
+        location = (int(head_location[0] + self.snake.velocity[0]), int(head_location[1] + self.snake.velocity[1]))
+        if location in self.obj_list.keys():
+            temp_obj = self.obj_list[location]
+            if isinstance(temp_obj, GameObj):
+                if temp_obj.tag == "snake":
+                    self.reset()
+                else:
+                    # create snake body for head
+                    snake_body = GameObj(location=location, width=self.OBJECT_WIDTH, height=self.OBJECT_WIDTH,
+                                         tag="snake")
+                    self.snake.insert(snake_body)
+                    self.obj_list[location] = snake_body
         else:
             # remove snake tail
             remove_location = (self.snake.tail.game_obj.location[0], self.snake.tail.game_obj.location[1])
-            self.obj_list.pop(remove_location)
+            del self.obj_list[remove_location]
             self.snake.remove()
-
-        # create snake body for head
-        snake_body = GameObj(location=location, width=self.OBJECT_WIDTH, height=self.OBJECT_WIDTH, tag="snake")
-        self.snake.insert(snake_body)
-        self.obj_list[location] = snake_body
+            # create snake body for head
+            snake_body = GameObj(location=location, width=self.OBJECT_WIDTH, height=self.OBJECT_WIDTH, tag="snake")
+            self.snake.insert(snake_body)
+            self.obj_list[location] = snake_body
 
     # Generate food
 

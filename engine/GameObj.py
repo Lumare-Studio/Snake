@@ -8,8 +8,8 @@ class GameObj(object):
                  height=0,
                  color="red"):
         self.location = location
-        self.vel = velocity
-        self.acc = acceleration
+        self.velocity = velocity
+        self.acceleration = acceleration
         self.tag = tag
         self.width = width
         self.height = height

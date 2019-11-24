@@ -19,7 +19,6 @@ class WindowManager(object):
         # Not resizeable
         self.window.resizable(False, False)
 
-
     def get_window(self):
         return self.window
 

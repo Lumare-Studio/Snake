@@ -18,8 +18,8 @@ class Renderer(object):
             self.canvas.delete("all")
             for game_obj_key in self.obj_dict:
                 game_obj = self.obj_dict[game_obj_key]
-                x = game_obj.loc[0]
-                y = game_obj.loc[1]
+                x = game_obj.location[0]
+                y = game_obj.location[1]
                 width = game_obj.width
                 height = game_obj.height
                 color = game_obj.color
