@@ -39,7 +39,7 @@ class SnakeGame(object):
         self.move_snake(code)
 
     def reset(self):
-        self.obj_list = {}
+        self.obj_list.clear()
         self.snake = Snake()
         self.generate_food()
         location_third = (self.WIDTH / 2 + 2 * self.OBJECT_WIDTH, self.HEIGHT / 2)
@@ -57,7 +57,7 @@ class SnakeGame(object):
 
     def movement(self):
         # add new body to the head
-        head_location = self.snake.head.next.location
+        head_location = self.snake.head.location
 
         # compute location
         location = (head_location[0] + self.snake.velocity[0], head_location[1] + self.snake.velocity[1])
@@ -81,7 +81,7 @@ class SnakeGame(object):
     def generate_food(self):
         random_x = random.randint(0, self.WIDTH)
         random_y = random.randint(0, self.HEIGHT)
-        food = GameObj(location=[random_x, random_y], width=self.WIDTH, height=self.HEIGHT, tag="food")
+        food = GameObj(location=[random_x, random_y], width=self.OBJECT_WIDTH, height=self.OBJECT_WIDTH, tag="food")
         self.obj_list[(random_x, random_y)] = food
 
     # Main game
