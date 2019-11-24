@@ -5,11 +5,13 @@ class GameObj(object):
                  acceleration=[0, 0],
                  tag=None,
                  width=0,
-                 height=0):
-        self.loc = location
+                 height=0,
+                 color="red"):
+        self.location = location
         self.vel = velocity
         self.acc = acceleration
         self.tag = tag
         self.width = width
         self.height = height
+        self.color = color
 
