@@ -75,7 +75,7 @@ class SnakeGame(object):
         else:
             # remove snake tail
             remove_location = (self.snake.tail.game_obj.location[0], self.snake.tail.game_obj.location[1])
-            del self.obj_list[remove_location]
+            self.obj_list.pop(remove_location)
             self.snake.remove()
             # create snake body for head
             snake_body = GameObj(location=location, width=self.OBJECT_WIDTH, height=self.OBJECT_WIDTH, tag="snake")
