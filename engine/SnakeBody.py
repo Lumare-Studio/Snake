@@ -1,36 +1,34 @@
 class SnakeBody(object):
 
-    def __int__(self, game_obj):
+    def __init__(self, game_obj = None):
         self.next = None
         self.prev = None
-        self.game_Obj = game_obj
+        self.game_obj = game_obj
 
 
 class Snake(object):
 
-    def __int__(self, velocity=[-25, 0]):
-        self.head = SnakeBody()
-        self.tail = self.head
+    def __init__(self, velocity=[-25, 0]):
+        self.size = 0
+        self.head = None
+        self.tail = None
         self.velocity = velocity
 
-        self.size = 0
-
     def insert(self, game_obj):
-        snake_body = SnakeBody(game_obj)
-        temp = self.head.next
-        self.head.next = snake_body
-        temp.prev = self.head.next
-        self.head.next.next = temp
-        if self.size == 0:
-            self.tail = self.tail.next
-        self.size += 1
+        new_body = SnakeBody(game_obj)
+        if self.size == 0 :
+            self.head = new_body
+            self.tail = new_body
+        else:
+            new_body = SnakeBody(game_obj)
+            old_head = self.head
+            old_head.prev = new_body
+            self.head = new_body
+            self.head.next = old_head
+
 
     def remove(self):
-        temp = None
-        if self.size > 0:
-            temp = self.tail.prev
-            self.tail.prev = None
-            self.tail = temp
-            self.tail.next = None
-            self.size -= 1
-        return temp
+        if self.size > 0 :
+           self.tail = self.prev
+           self.tail.next = None
+           self.size -= 1
