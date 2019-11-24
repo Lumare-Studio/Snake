@@ -1,5 +1,5 @@
 from engine import *
-from .SnakeGame import SnakeGame
+from Snakelauncher import SnakeGame
 import multiprocessing
 import threading
 
@@ -15,7 +15,7 @@ def launcher():
     snake_core_thread.start()
     render_process.start()
 
-    
+
 launcher()
 
 
