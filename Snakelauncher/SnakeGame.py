@@ -1,5 +1,5 @@
 from engine import *
-from random import *
+import random
 
 
 class SnakeGame(object):
@@ -79,8 +79,8 @@ class SnakeGame(object):
     # Generate food
 
     def generate_food(self):
-        random_x = random.randrange(0, self.WIDTH)
-        random_y = random.randrange(0, self.HEIGHT)
+        random_x = random.randint(0, self.WIDTH)
+        random_y = random.randint(0, self.HEIGHT)
         food = GameObj(location=[random_x, random_y], width=self.WIDTH, height=self.HEIGHT, tag="food")
         self.obj_list[(random_x, random_y)] = food
 
