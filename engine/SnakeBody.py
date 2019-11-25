@@ -17,7 +17,7 @@ class Snake(object):
 
     def insert(self, game_obj):
         new_body = SnakeBody(game_obj)
-        if self.size == 0 :
+        if self.size == 0:
             self.head = new_body
             self.tail = new_body
         else:
@@ -27,9 +27,8 @@ class Snake(object):
             self.head = new_body
             self.head.next = old_head
 
-
     def remove(self):
-        if self.size > 0 :
-           self.tail = self.prev
-           self.tail.next = None
-           self.size -= 1
+        if self.size > 0:
+            self.tail = self.tail.prev
+            self.tail.next = None
+            self.size -= 1
