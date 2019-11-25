@@ -29,7 +29,6 @@ class Renderer(object):
                 height = game_obj.height
                 color = game_obj.color
                 self.canvas.create_rectangle(x, y, x + width, y + height, fill=color)
-                print (x, y)
             self.window.update()
             time.sleep(1 / self.FPS)
         self.window_manager.show_window()

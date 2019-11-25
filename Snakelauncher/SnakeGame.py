@@ -46,10 +46,10 @@ class SnakeGame(object):
                 self.snake.velocity = [self.SPEED, 0]
         elif code == 38:
             if self.snake.velocity[1] == 0:
-                self.snake.velocity = [0, self.SPEED]
+                self.snake.velocity = [0, -self.SPEED]
         elif code == 40:
             if self.snake.velocity[1] == 0:
-                self.snake.velocity = [0, -self.SPEED]
+                self.snake.velocity = [0, self.SPEED]
 
     def get_user_input(self, event):
         code = event.keycode
@@ -107,6 +107,7 @@ class SnakeGame(object):
             self.snake.insert(snake_body)
             self.add_obj(key=location, value=snake_body)
 
+
     # Generate food
 
     def generate_food(self):
@@ -133,4 +134,4 @@ class SnakeGame(object):
             if not has_food:
                 self.generate_food()
                 has_food = True
-            time.sleep(3)
+            time.sleep(0.3)
