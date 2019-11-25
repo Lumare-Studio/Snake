@@ -22,13 +22,13 @@ class SnakeGame(object):
         self.SPEED = 25
         self.OBJECT_WIDTH = 25
 
-    #add object to dictionary
+    # add object to dictionary
     def add_obj(self, key, value):
-        self.obj_manager.add(key = key, value= value)
+        self.obj_manager.add(key=key, value=value)
 
     # delete object from dictionary
     def del_obj(self, key):
-        self.obj_manager.remove(key = key)
+        self.obj_manager.remove(key=key)
 
     # snake movement
     def move_snake(self, code):
@@ -62,11 +62,11 @@ class SnakeGame(object):
         self.snake.insert(third_body)
         self.snake.insert(second_body)
         self.snake.insert(first_body)
-        #self.obj_list[location_third] = third_body
+        # self.obj_list[location_third] = third_body
         self.add_obj(key=location_third, value=third_body)
-        #self.obj_list[location_second] = second_body
+        # self.obj_list[location_second] = second_body
         self.add_obj(key=location_second, value=second_body)
-        #self.obj_list[location_first] = first_body
+        # self.obj_list[location_first] = first_body
         self.add_obj(key=location_first, value=first_body)
 
     def movement(self):
@@ -85,8 +85,8 @@ class SnakeGame(object):
                     snake_body = GameObj(location=location, width=self.OBJECT_WIDTH, height=self.OBJECT_WIDTH,
                                          tag="snake")
                     self.snake.insert(snake_body)
-                    #self.obj_list[location] = snake_body
-                    self.add_obj(key = location, value = snake_body)
+                    # self.obj_list[location] = snake_body
+                    self.add_obj(key=location, value=snake_body)
         else:
             # remove snake tail
             remove_location = (self.snake.tail.game_obj.location[0], self.snake.tail.game_obj.location[1])
@@ -95,7 +95,7 @@ class SnakeGame(object):
             # create snake body for head
             snake_body = GameObj(location=location, width=self.OBJECT_WIDTH, height=self.OBJECT_WIDTH, tag="snake")
             self.snake.insert(snake_body)
-            self.add_obj(key= location, value = snake_body )
+            self.add_obj(key=location, value=snake_body)
 
     # Generate food
 
@@ -103,7 +103,7 @@ class SnakeGame(object):
         random_x = random.randint(0, self.WIDTH)
         random_y = random.randint(0, self.HEIGHT)
         food = GameObj(location=[random_x, random_y], width=self.OBJECT_WIDTH, height=self.OBJECT_WIDTH, tag="food")
-        self.add_obj(key = (random_x, random_y), value = food)
+        self.add_obj(key=(random_x, random_y), value=food)
 
     # Main game
     def main(self):
@@ -123,3 +123,4 @@ class SnakeGame(object):
             if not has_food:
                 self.generate_food()
                 has_food = True
+            time.sleep(3)
