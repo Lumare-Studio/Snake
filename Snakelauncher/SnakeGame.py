@@ -95,11 +95,15 @@ class SnakeGame(object):
                     self.add_obj(key=location, value=snake_body)
         else:
             # remove snake tail
+            print("Normal cases")
             remove_location = (self.snake.tail.game_obj.location[0], self.snake.tail.game_obj.location[1])
             self.del_obj(remove_location)
+            print(remove_location)
             self.snake.remove()
+            print()
             # create snake body for head
             snake_body = GameObj(location=location, width=self.OBJECT_WIDTH, height=self.OBJECT_WIDTH, tag="snake")
+            print("add new body", snake_body.location)
             self.snake.insert(snake_body)
             self.add_obj(key=location, value=snake_body)
 
