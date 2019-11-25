@@ -6,7 +6,8 @@ class GameObj(object):
                  tag=None,
                  width=0,
                  height=0,
-                 color="red"):
+                 color="red",
+                 is_deleted = False):
         self.location = location
         self.velocity = velocity
         self.acceleration = acceleration
@@ -14,4 +15,5 @@ class GameObj(object):
         self.width = width
         self.height = height
         self.color = color
+        self.is_deleted = is_deleted
 

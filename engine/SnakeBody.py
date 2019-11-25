@@ -8,7 +8,7 @@ class SnakeBody(object):
 
 class Snake(object):
 
-    def __init__(self, velocity=[-25, 0]):
+    def __init__(self, velocity=[0, 0]):
 
         self.size = 0
         self.head = None
