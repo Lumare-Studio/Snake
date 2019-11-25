@@ -21,6 +21,7 @@ class SnakeGame(object):
         self.HEIGHT = 800
         self.SPEED = 25
         self.OBJECT_WIDTH = 25
+        self.has_food = False
 
     # add object to dictionary
     def add_obj(self, key, value):
@@ -93,34 +94,32 @@ class SnakeGame(object):
                     self.snake.insert(snake_body)
                     # self.obj_list[location] = snake_body
                     self.add_obj(key=location, value=snake_body)
+                    self.has_food = False
         else:
             # remove snake tail
-            print("Normal cases")
             remove_location = (self.snake.tail.game_obj.location[0], self.snake.tail.game_obj.location[1])
             self.del_obj(remove_location)
-            print(remove_location)
             self.snake.remove()
-            print()
             # create snake body for head
             snake_body = GameObj(location=location, width=self.OBJECT_WIDTH, height=self.OBJECT_WIDTH, tag="snake")
-            print("add new body", snake_body.location)
             self.snake.insert(snake_body)
             self.add_obj(key=location, value=snake_body)
-
 
     # Generate food
 
     def generate_food(self):
-        random_x = random.randint(0, self.WIDTH)
-        random_y = random.randint(0, self.HEIGHT)
-        food = GameObj(location=[random_x, random_y], width=self.OBJECT_WIDTH, height=self.OBJECT_WIDTH, tag="food")
+        RANGE = int(self.WIDTH / self.OBJECT_WIDTH) - 1
+        random_x = random.randint(0, RANGE) * self.OBJECT_WIDTH
+        random_y = random.randint(0, RANGE) * self.OBJECT_WIDTH
+        food = GameObj(location=[random_x, random_y], width=self.OBJECT_WIDTH, height=self.OBJECT_WIDTH, tag="food",
+                       color="green")
         self.add_obj(key=(random_x, random_y), value=food)
 
     # Main game
     def main(self):
         self.reset()
         game_over = False
-        has_food = True
+        self.has_food = True
         while True:
             if game_over:
                 self.reset()
@@ -131,7 +130,7 @@ class SnakeGame(object):
             self.movement()
 
             # Check if there is food, if not, then create one
-            if not has_food:
+            if not self.has_food:
                 self.generate_food()
-                has_food = True
-            time.sleep(0.3)
+                self.has_food = True
+            time.sleep(0.05)
