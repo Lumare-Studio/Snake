@@ -16,3 +16,7 @@ class DictManager(object):
         self.origin_dict.pop(key)
         temp = copy.deepcopy(self.origin_dict)
         self.copy_dict = temp
+
+    def clear(self):
+        self.origin_dict = dict()
+        self.copy_dict = copy.deepcopy(self.origin_dict)

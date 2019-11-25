@@ -25,10 +25,16 @@ class SnakeGame(object):
     # add object to dictionary
     def add_obj(self, key, value):
         self.obj_manager.add(key=key, value=value)
+        self.obj_list = self.obj_manager.copy_dict
 
     # delete object from dictionary
     def del_obj(self, key):
         self.obj_manager.remove(key=key)
+        self.obj_list = self.obj_manager.copy_dict
+
+    def clear(self):
+        self.obj_manager.clear()
+        self.obj_list = self.obj_manager.copy_dict
 
     # snake movement
     def move_snake(self, code):
@@ -50,7 +56,7 @@ class SnakeGame(object):
         self.move_snake(code)
 
     def reset(self):
-        self.obj_list.clear()
+        self.clear()
         self.snake = Snake()
         self.generate_food()
         location_third = (self.WIDTH / 2 + 2 * self.OBJECT_WIDTH, self.HEIGHT / 2)

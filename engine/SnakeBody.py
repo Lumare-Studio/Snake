@@ -26,6 +26,7 @@ class Snake(object):
             old_head.prev = new_body
             self.head = new_body
             self.head.next = old_head
+        self.size += 1
 
     def remove(self):
         if self.size > 0:
