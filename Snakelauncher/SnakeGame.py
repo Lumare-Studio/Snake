@@ -22,6 +22,7 @@ class SnakeGame(object):
         self.SPEED = 25
         self.OBJECT_WIDTH = 25
         self.has_food = False
+        self.RANGE = int(self.WIDTH / self.OBJECT_WIDTH) - 1
 
     # add object to dictionary
     def add_obj(self, key, value):
@@ -82,6 +83,7 @@ class SnakeGame(object):
 
         # compute location
         location = (int(head_location[0] + self.snake.velocity[0]), int(head_location[1] + self.snake.velocity[1]))
+        location = self.check_location(location)
         if location in self.obj_list.keys():
             temp_obj = self.obj_list[location]
             if isinstance(temp_obj, GameObj):
@@ -105,13 +107,35 @@ class SnakeGame(object):
             self.snake.insert(snake_body)
             self.add_obj(key=location, value=snake_body)
 
+    def check_location(self, location):
+        new_location = None
+        right_most_x = self.WIDTH - self.OBJECT_WIDTH
+        bottom_most_y = self.HEIGHT - self.OBJECT_WIDTH
+        if location[0] < 0:
+            new_location = (right_most_x, location[1])
+        elif location[0] > right_most_x:
+            new_location = (0, location[1])
+        elif location[1] < 0:
+            new_location = (location[0], bottom_most_y)
+        elif location[1] > bottom_most_y:
+            new_location = (location[0], 0)
+        else:
+            new_location = location
+        return new_location
+
     # Generate food
 
     def generate_food(self):
-        RANGE = int(self.WIDTH / self.OBJECT_WIDTH) - 1
+        RANGE = self.RANGE
         random_x = random.randint(0, RANGE) * self.OBJECT_WIDTH
         random_y = random.randint(0, RANGE) * self.OBJECT_WIDTH
-        food = GameObj(location=[random_x, random_y], width=self.OBJECT_WIDTH, height=self.OBJECT_WIDTH, tag="food",
+        location = (random_x, random_y)
+        while location in self.obj_list.keys():
+            RANGE = self.RANGE
+            random_x = random.randint(0, RANGE) * self.OBJECT_WIDTH
+            random_y = random.randint(0, RANGE) * self.OBJECT_WIDTH
+            location = (random_x, random_y)
+        food = GameObj(location=location, width=self.OBJECT_WIDTH, height=self.OBJECT_WIDTH, tag="food",
                        color="green")
         self.add_obj(key=(random_x, random_y), value=food)
 
